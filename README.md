@@ -16,7 +16,8 @@ This repository contains my configuration files for the following applications:
 - nvim [neovim/lazyvim](Text editor)
 - Kitty (Terminal emulator)
 - Fastfetch (System information)
-
+- Fuzzel (app launcher)
+- Thunar (File manager)
 
 ## WARNING about SELinux (Fedora) ( i already automated this in the install.sh remove the automated parts if you wanna config it manually since you cant blindly trust me ofc)
 Ly may fail to launch a session on Fedora due to SELinux. If this happens(which probably will ), generate a local policy module:
@@ -51,6 +52,8 @@ This is a known issue and the fix is recommended by the Ly developers.
 - config/fastfetch - Fastfetch configuration
 - config/nvim - nvim configuration
 - config/ly - Ly configuration
+- config/Thunar - Thunar config
+- config/Fuzzel - Fuzzel config
 - pictures/wallpapers - Wallpapers
 
 ## Notes
