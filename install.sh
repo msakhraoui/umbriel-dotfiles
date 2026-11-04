@@ -40,7 +40,7 @@ echo "Setting up Ly Display Manager"
 sudo mkdir -p /etc/ly
 sudo cp config/ly/config.lua /etc/ly/config.lua 2>/dev/null || true
 
-# Install the SELinux policy for Ly if it exists in the repo
+# 6 Install the SELinux policy for Ly if it exists in the repo
 if [ -f config/ly/ly_permissive.pp ]; then
   echo "Installing SELinux policy for Ly..."
   sudo semodule -i config/ly/ly_permissive.pp
@@ -48,12 +48,22 @@ else
   echo "WARNING: ly_permissive.pp not found. You may need to generate it manually if Ly fails to start."
 fi
 
-# 6. Enable Ly (Uncomment to apply automatically)
+# 7. Enable Ly (Uncomment to apply automatically)
 echo "Enabling Ly on tty2..."
 sudo systemctl disable gdm
 sudo systemctl enable ly@tty2.service
 sudo systemctl disable getty@tty2.service
 
+# 8. Enabling plugins IF YOU'R not A MUSLIM disable THE MAWAQIT one
+echo "Enabling Noctalia plugins..."
+noctalia msg plugins enable h465855hgg/lyrics || true
+noctalia msg plugins enable goatnath/spotify-lyrics || true
+noctalia msg plugins enable noctalia/notes || true
+noctalia msg plugins enable shangshui0302/github-kanban || true
+noctalia msg plugins enable ycf/mawaqit || true
+noctalia msg plugins enable thepunkoff/pomodoro || true
+
+# 9. HOLY SHIT
 echo "Installation complete. congrats"
 echo "Please READ about SELlinux in the GITHUB REPO before restarting, review your configs and log out or reboot to apply changes."
 echo "have fun larping this shi"
