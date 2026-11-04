@@ -7,12 +7,10 @@ echo "Starting installation of umbriel-dotfiles:"
 
 echo "enabling coprs for noctalia and umbriel"
 sudo dnf copr enable -y lionheartp/Hyprland
-sudo dnf copr enable -y noctalia-dev/noctalia
-
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 # 1. Install Packages
 echo "Installing required packages via dnf..."
-sudo dnf install -y kitty fastfetch grim slurp wl-clipboard brightnessctl fuzzel fish git
-
+sudo dnf install -y kitty fastfetch grim slurp wl-clipboard brightnessctl fuzzel fish git neovim noctalia-git umbriel
 # Note: Umbriel and Noctalia are not in the default Fedora repos.
 # You must have their COPRs enabled or build them from source before running this.
 # 2. Create Configuration Directories
@@ -20,6 +18,7 @@ echo "Creating configuration directories.."
 mkdir -p ~/.config/umbriel
 mkdir -p ~/.config/kitty
 mkdir -p ~/.config/fastfetch
+mkdir -p ~/.config/nvim
 mkdir -p ~/.local/state/noctalia
 mkdir -p ~/.local/bin
 mkdir -p ~/Pictures
@@ -29,6 +28,7 @@ echo "Copying configurations..."
 cp -r config/umbriel/* ~/.config/umbriel/ 2>/dev/null || true
 cp -r config/kitty/* ~/.config/kitty/ 2>/dev/null || true
 cp -r config/fastfetch/* ~/.config/fastfetch/ 2>/dev/null || true
+cp -r config/nvim/* ~/.config/nvim/ 2>/dev/null || true
 cp -r config/noctalia/* ~/.local/state/noctalia/ 2>/dev/null || true
 
 # 4. Copy Wallpapers
@@ -39,6 +39,14 @@ cp -r pictures/wallpapers/* ~/Pictures/ 2>/dev/null || true
 echo "Setting up Ly Display Manager"
 sudo mkdir -p /etc/ly
 sudo cp config/ly/config.lua /etc/ly/config.lua 2>/dev/null || true
+
+# Install the SELinux policy for Ly if it exists in the repo
+if [ -f config/ly/ly_permissive.pp ]; then
+  echo "Installing SELinux policy for Ly..."
+  sudo semodule -i config/ly/ly_permissive.pp
+else
+  echo "WARNING: ly_permissive.pp not found. You may need to generate it manually if Ly fails to start."
+fi
 
 # 6. Enable Ly (Uncomment to apply automatically)
 echo "Enabling Ly on tty2..."
