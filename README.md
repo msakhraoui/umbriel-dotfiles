@@ -7,6 +7,13 @@ My personal dotfiles for Fedora 44 running Umbriel and Noctalia.
 ![Showcase](pictures/showcase.gif)
 
 *[Click here to watch the full video with sound on YouTube](https://youtu.be/GQyFk1kP-DE)*
+
+## Screenshots
+
+<p align="center">
+  <img src="pictures/desktop.png" width="800" />
+</p>
+
 ## Description
 
 This repository contains my configuration files for the following applications:
