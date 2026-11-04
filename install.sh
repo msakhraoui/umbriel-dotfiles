@@ -5,13 +5,16 @@ set -e
 
 echo "Starting installation of umbriel-dotfiles:"
 
+echo "enabling coprs for noctalia and umbriel"
+sudo dnf copr enable -y lionheartp/Hyprland
+sudo dnf copr enable -y noctalia-dev/noctalia
+
 # 1. Install Packages
 echo "Installing required packages via dnf..."
 sudo dnf install -y kitty fastfetch grim slurp wl-clipboard brightnessctl fuzzel fish git
 
 # Note: Umbriel and Noctalia are not in the default Fedora repos.
 # You must have their COPRs enabled or build them from source before running this.
-
 # 2. Create Configuration Directories
 echo "Creating configuration directories.."
 mkdir -p ~/.config/umbriel
