@@ -1,0 +1,164 @@
+[general]
+mod_key = "Super"
+autostart = ["noctalia"]
+
+# ─── Fix 1: Disable NVIDIA Sync Workaround ───
+# This is the #1 cause of frame drops and stuttering on NVIDIA cards in Umbriel.
+nvidia_sync_workaround = false
+
+[input.keyboard]
+numlock_toggle = true
+
+# ─── Monitors (Translated from your Niri config) ───
+[output.eDP-1]
+mode = "1920x1080@120.002"
+position = [0, 0]
+scale = 1.0
+transform = "normal"
+
+
+[output.HDMI-A-1]
+mode = "1920x1080@100.000"
+position = [0, -1080]
+scale = 1.0
+transform = "normal"
+
+# border color and thickness: 
+[appearance]
+border_width = 1
+corner_radius = 10
+
+[[window_rule]]
+border_color_focused = "#707070FF"
+border_color_unfocused = "#3A3A3AFF"
+
+[keybinds]
+# ─── Applications ───
+"Mod+T" = { action = "spawn kitty", repeat = false }
+"Mod+E" = { action = "spawn thunar", repeat = false }
+"Mod+Space" = { action = "spawn sh -c 'pkill -x fuzzel || fuzzel'", repeat = false }
+
+# ─── Noctalia Shell ───
+"Mod+Comma" = { action = "spawn noctalia msg settings-toggle", repeat = false }
+"Mod+N" = { action = "spawn noctalia msg panel-toggle notifications", repeat = false }
+"Mod+Y" = { action = "spawn noctalia msg panel-toggle wallpaper", repeat = false }
+"Mod+Alt+L" = { action = "spawn noctalia msg session lock", repeat = false }
+"Super+X" = { action = "spawn noctalia msg panel-toggle session", repeat = false }
+"Mod+V" = { action = "spawn noctalia msg panel-toggle clipboard", repeat = false }
+"Mod+Shift+N" = { action = "spawn noctalia msg panel-toggle notepad", repeat = false }
+
+
+# ─── Media & Brightness (Allow when locked) ───
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioMicMute" = { action = "spawn noctalia msg mic-mute", allow_when_locked = true }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioPause" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"Ctrl+XF86AudioRaiseVolume" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"Ctrl+XF86AudioLowerVolume" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+
+# ─── Screenshots ───
+"Mod+Shift+S" = { action = "spawn sh -c 'mkdir -p ~/Pictures/Screenshots; grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/$(date +\"Screenshot from %Y-%m-%d %H-%M-%S.png\") | wl-copy'", repeat = false }
+# ─── Window Focus ───
+"Mod+Q" = { action = "window-close", repeat = false }
+"Mod+Left" = "window-focus-left"
+"Mod+H" = "window-focus-left"
+"Mod+Right" = "window-focus-right"
+"Mod+L" = "window-focus-right"
+"Mod+Up" = "window-focus-up"
+"Mod+K" = "window-focus-up"
+"Mod+Down" = "window-focus-down"
+"Mod+J" = "window-focus-down"
+
+# ─── Window & Column Movement ───
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+H" = "column-move-left"
+"Mod+Shift+Right" = "column-move-right"
+"Mod+Shift+L" = "column-move-right"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+K" = "window-move-up"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+J" = "window-move-down"
+"Mod+Shift+Ctrl+U" = "window-move-to-workspace-previous"
+"Mod+Shift+Ctrl+I" = "window-move-to-workspace-next"
+"Mod+Shift+Ctrl+H" = "window-move-left"
+"Mod+Shift+Ctrl+L" = "window-move-right"
+# ─── Monitor Focus & Movement ───
+"Mod+Ctrl+Left" = "output-focus-left"
+"Mod+Ctrl+H" = "output-focus-left"
+"Mod+Ctrl+Right" = "output-focus-right"
+"Mod+Ctrl+L" = "output-focus-right"
+"Mod+Ctrl+Up" = "output-focus-up"
+"Mod+Ctrl+K" = "output-focus-up"
+"Mod+Ctrl+Down" = "output-focus-down"
+"Mod+Ctrl+J" = "output-focus-down"
+
+# ─── Move window between screens ───
+"Mod+Shift+Ctrl+Left" = "window-move-to-output-left"
+"Mod+Shift+Ctrl+Right" = "window-move-to-output-right"
+"Mod+Shift+Ctrl+Up" = "window-move-to-output-up"
+"Mod+Shift+Ctrl+J" = "window-move-to-output-up"
+"Mod+Shift+Ctrl+Down" = "window-move-to-output-down"
+"Mod+Shift+Ctrl+K" = "window-move-to-output-down"
+
+# ─── Column & Layout Management ───
+"Mod+Shift+V" = "window-toggle-floating"
+"Mod+BracketLeft" = "window-consume-left"
+"Mod+BracketRight" = "window-consume-right"
+"Mod+B" = "window-consume-right"
+"Mod+Period" = "window-consume-right"
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-primary-extent-back"
+"Mod+Ctrl+R" = "window-set-primary-extent 0.5"
+
+# ─── Workspace Switching (Fixed Wheel Syntax) ───
+"Mod+WheelDown" = { action = "workspace-next", cooldown_ms = 150 }
+"Mod+WheelUp" = { action = "workspace-previous", cooldown_ms = 150 }
+"Mod+Ctrl+WheelDown" = { action = "window-move-to-workspace-next", cooldown_ms = 150 }
+"Mod+Ctrl+WheelUp" = { action = "window-move-to-workspace-previous", cooldown_ms = 150 }
+"Mod+I" = "workspace-next"
+"Mod+U" = "workspace-previous"
+"Mod+Shift+I" = "workspace-move-to-output-next"
+"Mod+Shift+U" = "workspace-move-to-output-previous"
+
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+
+#scratchpad keybinds::
+"Mod+Shift+Space" = "scratchpad-toggle"
+"Mod+Ctrl+Space" = "window-restore-from-scratchpad"
+
+# ─── Overview & Toggles ───
+"Mod+Tab" = { action = "overview-toggle", repeat = false }
+"Mod+D" = { action = "overview-toggle", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+W" = "column-toggle-tabbed"
+
+# ─── Power / Exit ───
+"Mod+Shift+E" = "session-quit"
+"Mod+Shift+P" = "dpms-off"
+"Mod+Escape" = { action = "shortcuts-inhibit-toggle", repeat = false }
