@@ -1,4 +1,4 @@
-# umbriel-dotfiles
+# umbriel-dotfiles ( for ONLY fedora 44, for now)
 
 My personal dotfiles for Fedora 44 running Umbriel and Noctalia.
 
