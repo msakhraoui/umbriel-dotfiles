@@ -8,15 +8,17 @@ This repository contains my configuration files for the following applications:
 
 - Umbriel (Wayland compositor)
 - Noctalia (Desktop shell)
+- Ly (Display manager)
+- nvim [neovim/lazyvim](Text editor)
 - Kitty (Terminal emulator)
 - Fastfetch (System information)
-- Ly (Display manager)
-## WARNING about SELinux (Fedora) 
 
+
+## WARNING about SELinux (Fedora) ( i already automated this in the install.sh remove the automated parts if you wanna config it manually since you cant blindly trust me ofc)
 Ly may fail to launch a session on Fedora due to SELinux. If this happens(which probably will ), generate a local policy module:
 
-    sudo ausearch -m avc -ts recent | audit2allow -M ly-local
-    sudo semodule -i ly-local.pp
+    sudo ausearch -m avc -ts recent | audit2allow -M ly_permissive
+    sudo semodule -i ly_permissive.pp
 
 This is a known issue and the fix is recommended by the Ly developers.
 
@@ -43,6 +45,7 @@ This is a known issue and the fix is recommended by the Ly developers.
 - config/noctalia - Noctalia configuration
 - config/kitty - Kitty configuration
 - config/fastfetch - Fastfetch configuration
+- config/nvim - nvim configuration
 - config/ly - Ly configuration
 - pictures/wallpapers - Wallpapers
 
