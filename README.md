@@ -11,7 +11,7 @@ My personal dotfiles for Fedora 44 running Umbriel and Noctalia.
 ## Screenshots
 
 <p align="center">
-  <img src="pictures/desktop.png" width="800" />
+  <img src="pictures/fuzzel.png" width="800" />
 </p>
 
 ## Description
