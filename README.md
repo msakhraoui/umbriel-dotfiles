@@ -11,20 +11,31 @@ This repository contains my configuration files for the following applications:
 - Kitty (Terminal emulator)
 - Fastfetch (System information)
 - Ly (Display manager)
+## WARNING about SELinux (Fedora) 
+
+Ly may fail to launch a session on Fedora due to SELinux. If this happens(which probably will ), generate a local policy module:
+
+    sudo ausearch -m avc -ts recent | audit2allow -M ly-local
+    sudo semodule -i ly-local.pp
+
+This is a known issue and the fix is recommended by the Ly developers.
 
 ## Installation
 
 1. Clone the repository:
-
-   git clone https://github.com/msakhraoui/umbriel-dotfiles.git
+```console
+  -- git clone https://github.com/msakhraoui/umbriel-dotfiles.git
+```
 
 2. Change into the directory:
-
+```console
    cd umbriel-dotfiles
+```
 
 3. Run the install script:
-
+```console
    ./install.sh
+```
 
 ## Contents
 
