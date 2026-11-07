@@ -5,7 +5,7 @@ always evolving as my workflow changes.
 
 ## Showcase 
 
-![Showcase](pictures/showcase.gif)
+![Showcase](pictures/showcase-v2.gif)
 
 *[Click here to watch the full video with sound on YouTube](https://youtu.be/GQyFk1kP-DE)*
 
