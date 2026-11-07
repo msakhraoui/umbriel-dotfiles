@@ -19,7 +19,7 @@ transform = "normal"
 
 [output.HDMI-A-1]
 mode = "1920x1080@100.000"
-position = [0, -1080]
+position = [900, -1080]
 scale = 1.0
 transform = "normal"
 
@@ -74,7 +74,8 @@ border_color_unfocused = "#3A3A3AFF"
 "Mod+K" = "window-focus-up"
 "Mod+Down" = "window-focus-down"
 "Mod+J" = "window-focus-down"
-
+"Mod+MouseForward" = "window-focus-right"
+"Mod+MouseBack" = "window-focus-left"
 # ─── Window & Column Movement ───
 "Mod+Shift+Left" = "column-move-left"
 "Mod+Shift+H" = "column-move-left"

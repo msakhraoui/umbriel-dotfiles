@@ -17,7 +17,7 @@ app launcher
 
 ctrl center
 <p align="center">
-  <img src="pictures/contrl center.png" width="800" />
+  <img src="pictures/contrlcenter.png" width="800" />
 </p>
 
 <p align="center">
