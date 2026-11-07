@@ -1,39 +1,56 @@
 # umbriel-dotfiles ( for ONLY fedora 44, for now)
 
 My personal dotfiles for Fedora 44 running Umbriel and Noctalia.
+always evolving as my workflow changes.
 
-## Showcase
+## Showcase 
 
 ![Showcase](pictures/showcase.gif)
 
 *[Click here to watch the full video with sound on YouTube](https://youtu.be/GQyFk1kP-DE)*
 
 ## Screenshots
-
+app launcher
 <p align="center">
   <img src="pictures/fuzzel.png" width="800" />
 </p>
 
-## Description
+ctrl center
+<p align="center">
+  <img src="pictures/contrl center.png" width="800" />
+</p>
 
+<p align="center">
+  <img src="pictures/terminals+nvim+fastfetch.png" width="800" />
+</p>
+
+
+## Description
+I personally use Ly as a display manager but that comes with SELinux tweaking which is smth big, so i removed it from the installation and kept GDM the default DM used by most ppl.
 This repository contains my configuration files for the following applications:
 
-- Umbriel (Wayland compositor)
-- Noctalia (Desktop shell)
-- Ly (Display manager)
-- nvim [neovim/lazyvim](Text editor)
-- Kitty (Terminal emulator)
-- Fastfetch (System information)
-- Fuzzel (app launcher)
-- Thunar (File manager)
+| Component | Details |
+| :--- | :--- |
+| OS | Fedora 44 |
+| Compositor | Umbriel (Wayland) |
+| Shell/Bar | Noctalia v5 |
+| Display Manager | GDM |
+| Terminal | Kitty |
+| Text Editor | Neovim (LazyVim) |
+| File Manager | Thunar |
+| App Launcher | Fuzzel |
+| Fetch | Fastfetch |
 
-## WARNING about SELinux (Fedora) ( i already automated this in the install.sh remove the automated parts if you wanna config it manually since you cant blindly trust me ofc)
-Ly may fail to launch a session on Fedora due to SELinux. If this happens(which probably will ), generate a local policy module:
+IMPORTANT: For a full list of keyboard/mouse shortcuts, see [KEYBINDS.md](KEYBINDS.md).
 
-    sudo ausearch -m avc -ts recent | audit2allow -M ly_permissive
-    sudo semodule -i ly_permissive.pp
+## Noctalia Plugins
 
-This is a known issue and the fix is recommended by the Ly developers.
+*   goatnath/spotify-lyrics
+*   h465855hgg/lyrics
+*   noctalia/notes
+*   shangshui0302/github-kanban
+*   ycf/mawaqit
+*   thepunkoff/pomodoro
 
 ## Installation
 
@@ -52,22 +69,15 @@ This is a known issue and the fix is recommended by the Ly developers.
    ./install.sh
 ```
 
-## Contents
 
-- config/umbriel - Umbriel configuration
-- config/noctalia - Noctalia configuration
-- config/kitty - Kitty configuration
-- config/fastfetch - Fastfetch configuration
-- config/nvim - nvim configuration
-- config/ly - Ly configuration
-- config/Thunar - Thunar config
-- config/Fuzzel - Fuzzel config
-- pictures/wallpapers - Wallpapers
+## What's Inside
+
+```text
+config/          -> Application configurations (Umbriel, Noctalia, Kitty, etc.)
+pictures/        -> Wallpapers and showcase GIF
+install.sh       -> Automated installation script
+```
 
 ## Notes
 
-This configuration is provided as is. It is designed for my specific hardware and workflow. You may need to adjust keybinds, monitor names, and paths to match your own setup.
-
-## License
-
-Do whatever you want with it.
+This configuration is provided as is. It is designed for my specific hardware and workflow. You may need to adjust keybinds, monitor names, and paths to match your own setup. have fun1!
