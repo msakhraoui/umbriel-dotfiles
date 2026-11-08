@@ -2,14 +2,17 @@
 mod_key = "Super"
 autostart = ["noctalia"]
 
-# ─── Fix 1: Disable NVIDIA Sync Workaround ───
+
 # This is the #1 cause of frame drops and stuttering on NVIDIA cards in Umbriel.
 nvidia_sync_workaround = false
 
+#language toggle / on startup numlock auto enable
 [input.keyboard]
 numlock_toggle = true
+layout = "fr,ara"
+options = "grp:alt_shift_toggle"
 
-# ─── Monitors (Translated from your Niri config) ───
+# ─── Monitors 
 [output.eDP-1]
 mode = "1920x1080@120.002"
 position = [0, 0]
@@ -19,7 +22,7 @@ transform = "normal"
 
 [output.HDMI-A-1]
 mode = "1920x1080@100.000"
-position = [900, -1080]
+position = [960, -1080]
 scale = 1.0
 transform = "normal"
 
@@ -31,6 +34,9 @@ corner_radius = 10
 [[window_rule]]
 border_color_focused = "#707070FF"
 border_color_unfocused = "#3A3A3AFF"
+
+[layout]
+gap = 3
 
 [keybinds]
 # ─── Applications ───
@@ -71,9 +77,9 @@ border_color_unfocused = "#3A3A3AFF"
 "Mod+Right" = "window-focus-right"
 "Mod+L" = "window-focus-right"
 "Mod+Up" = "window-focus-up"
-"Mod+K" = "window-focus-up"
+"Mod+j" = "window-focus-up"
 "Mod+Down" = "window-focus-down"
-"Mod+J" = "window-focus-down"
+"Mod+k" = "window-focus-down"
 "Mod+MouseForward" = "window-focus-right"
 "Mod+MouseBack" = "window-focus-left"
 # ─── Window & Column Movement ───
@@ -117,7 +123,7 @@ border_color_unfocused = "#3A3A3AFF"
 "Mod+Shift+R" = "window-cycle-primary-extent-back"
 "Mod+Ctrl+R" = "window-set-primary-extent 0.5"
 
-# ─── Workspace Switching (Fixed Wheel Syntax) ───
+# ─── Workspace Switching───
 "Mod+WheelDown" = { action = "workspace-next", cooldown_ms = 150 }
 "Mod+WheelUp" = { action = "workspace-previous", cooldown_ms = 150 }
 "Mod+Ctrl+WheelDown" = { action = "window-move-to-workspace-next", cooldown_ms = 150 }
@@ -158,6 +164,7 @@ border_color_unfocused = "#3A3A3AFF"
 "Mod+F" = { action = "window-toggle-maximize", repeat = false }
 "Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
 "Mod+W" = "column-toggle-tabbed"
+
 
 # ─── Power / Exit ───
 "Mod+Shift+E" = "session-quit"
