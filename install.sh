@@ -91,8 +91,10 @@ install_packages() {
   log "Enabling repos"
   sudo dnf install -y 'dnf-command(copr)'
   sudo dnf copr enable -y lionheartp/Hyprland
-  sudo dnf install -y --nogpgcheck \
-    --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+  if ! rpm -q terra-release >/dev/null 2>&1; then
+    sudo dnf install -y --nogpgcheck \
+      --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+  fi
 
   log "Installing packages"
   sudo dnf install -y "${PACKAGES[@]}"
