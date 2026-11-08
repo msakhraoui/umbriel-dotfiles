@@ -223,10 +223,6 @@ scale = 0.90000000596046448
 [plugin_settings."alexmnrs/github-activity"]
 calendar_open_near_click = false
 
-[plugin_settings."cleboost/hotspot"]
-password = "REDACTED"
-ssid = "REDACTED"
-
 [plugin_settings."dotnetrob/cat"]
 panel_position = "top_left"
 
@@ -384,7 +380,6 @@ transition_on_startup = true
 
     [wallpaper.last]
     path = "__HOME__/Pictures/Wallpapers/arms.jpg"
-
     [wallpaper.monitor.HDMI-A-1]
     directory = "__HOME__/Pictures"
 
@@ -396,7 +391,6 @@ transition_on_startup = true
 
     [wallpaper.monitors.eDP-1]
     path = "__HOME__/Pictures/Wallpapers/arms.jpg"
-
 [widget.bar]
 scale = 0.65000000000000002
 showElapsed = true
