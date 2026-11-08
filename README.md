@@ -3,9 +3,11 @@
 My personal dotfiles for Fedora 44 running Umbriel and Noctalia.
 always evolving as my workflow changes.
 
-## Showcase 
+## Showcase  
 
 ![Showcase](pictures/showcase-v2.gif)
+
+*Note: The GIF below is to demonstrate the movement and animations. See the screenshots below for the most up-to-date look of the bar and desktop.*
 
 *[Click here to watch the full video with sound on YouTube](https://youtu.be/GQyFk1kP-DE)*
 
