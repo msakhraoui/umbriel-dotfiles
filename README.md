@@ -10,17 +10,23 @@ always evolving as my workflow changes.
 *[Click here to watch the full video with sound on YouTube](https://youtu.be/GQyFk1kP-DE)*
 
 ## Screenshots
-v0.2 updated on Nov 8: 
+v1.5.0 updated on Nov 8: 
 <p align="center">
   <img src="pictures/dektop v0.2.png" width="800" />
 </p>
 
-app launcher
+bar:
+<p align="center">
+  <img src="pictures/bar.png" width="800" />
+</p>
+
+
+app launcher:
 <p align="center">
   <img src="pictures/fuzzel.png" width="800" />
 </p>
 
-ctrl center
+ctrl center with thunar
 <p align="center">
   <img src="pictures/contrlcenter.png" width="800" />
 </p>
