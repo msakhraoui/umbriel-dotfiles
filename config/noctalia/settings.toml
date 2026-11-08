@@ -13,36 +13,67 @@ order = [ "default" ]
     [bar.default]
     background_opacity = 0.0
     border = "secondary"
-    capsule = false
-    capsule_border_width = 0.0
+    capsule = true
     capsule_fill = "surface"
-    capsule_opacity = 1
-    capsule_padding = 0.0
-    capsule_thickness = 0.68999998830258846
-    center = [ "clock", "bar" ]
+    capsule_opacity = 0.35999999195337296
+    capsule_padding = 2.0
+    center = []
     compositor_blur = false
-    end = [
-        "temp",
-        "sysmon",
-        "tray",
-        "notifications",
-        "clipboard",
-        "toggle",
-        "network",
-        "bluetooth",
-        "volume",
-        "brightness",
-        "battery",
-        "session"
-    ]
+    end = [ "tray", "group:g2", "notifications", "toggle", "group:g4", "group:g3", "bar", "clock" ]
     font_scale = 1.1099999826401472
+    margin_ends = 32
     radius = 80
     radius_top_left = 0
     radius_top_right = 0
     scale = 1.1500000096857548
-    shadow = false
-    start = [ "wallpaper", "workspaces", "media", "notes", "github", "widget", "widget_2", "lyrics" ]
+    start = [ "session", "battery", "workspaces", "wallpaper", "group:g1", "lyrics" ]
     thickness = 32
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface"
+        id = "g1"
+        members = [ "notes", "github", "widget", "widget_2", "clipboard" ]
+        opacity = 0.35999998450279236
+        padding = 2.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface"
+        id = "g2"
+        members = [ "temp", "sysmon" ]
+        opacity = 0.35999998450279236
+        padding = 2.0
+        widget_spacing = 1
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface"
+        id = "g3"
+        members = [ "volume", "brightness" ]
+        opacity = 0.35999998450279236
+        padding = 2.0
+        widget_spacing = 2
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface"
+        id = "g4"
+        members = [ "network", "bluetooth" ]
+        opacity = 0.35999998450279236
+        padding = 2.0
 
 [brightness]
 enable_ddcutil = true
@@ -73,31 +104,12 @@ width = 600
 
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000003", "desktop-widget-0000000000000004" ]
+widget_order = [ "desktop-widget-0000000000000004" ]
 
     [desktop_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = false
-
-    [desktop_widgets.widget.desktop-widget-0000000000000003]
-    box_height = 136.12890625
-    box_width = 411.40234375
-    cx = 567.751953125
-    cy = 334.552734375
-    output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "media_player"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
-        album_art_background = false
-        audio_visualizer = true
-        background = false
-        hide_when_no_media = true
-        layout = "horizontal"
-        shadow = false
 
     [desktop_widgets.widget.desktop-widget-0000000000000004]
     box_height = 136.12890625
@@ -119,12 +131,12 @@ widget_order = [ "desktop-widget-0000000000000003", "desktop-widget-000000000000
         shadow = false
 
 [lockscreen]
+blur_intensity = 0.99999997764825821
 fingerprint = false
 monitors = [ "HDMI-A-1", "eDP-1" ]
 transition = [ "fade" ]
 
 [lockscreen_widgets]
-enabled = true
 schema_version = 2
 widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-1" ]
 
@@ -224,6 +236,12 @@ animation = "karaoke"
 background_opacity = 0.5
 blur = true
 font_scale = 1.3
+lyrics-panel_open_near_click = true
+
+[plugin_settings."h465855hgg/lyrics"]
+auto_source_routing = false
+lyrics_sources = [ "spotify", "splayer_next", "netease", "lrclib", "splayer", "qqmusic", "kugou", "qishui", "apple_music" ]
+translation_language = "en"
 
 [plugin_settings."noctalia/notes"]
 panel_position = "center_left"
@@ -260,7 +278,6 @@ enabled = [
     "ycf/mawaqit",
     "thepunkoff/pomodoro",
     "h465855hgg/lyrics",
-    "goatnath/spotify-lyrics",
     "tranzem/media-lyrics"
 ]
 
@@ -289,7 +306,7 @@ show_location = false
     open_near_click_control_center = true
     open_near_click_wallpaper = true
     session_placement = "floating"
-    session_position = "bottom_center"
+    session_position = "center"
     wallpaper_placement = "floating"
 
     [shell.screen_corners]
@@ -298,40 +315,43 @@ show_location = false
     [shell.screenshot]
     save_to_file = false
 
-    [[shell.session.actions]]
-    action = "lock"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "1"
-    variant = "secondary"
+    [shell.session]
+    grid_columns = 1
+    show_shortcuts = false
 
-    [[shell.session.actions]]
-    action = "logout"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "2"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "lock_and_suspend"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "3"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "2"
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "reboot"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "4"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "lock_and_suspend"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "3"
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "shutdown"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "5"
-    variant = "destructive"
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "4"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "5"
+        variant = "destructive"
 
     [shell.shadow]
     alpha = 0.45999998971819878
@@ -343,9 +363,9 @@ network_poll_seconds = 10
 
 [theme]
 builtin = "Ayu"
-community_palette = "Catppuccin Frappe Blue"
+community_palette = "Catppuccin Frappe Lavender"
 mode = "dark"
-source = "community"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -363,7 +383,7 @@ transition_on_startup = true
     path = "__HOME__/Pictures/pfp/mike mentzer.jpeg"
 
     [wallpaper.last]
-    path = "__HOME__/Pictures/pfp/mike mentzer.jpeg"
+    path = "__HOME__/Pictures/Wallpapers/arms.jpg"
 
     [wallpaper.monitor.HDMI-A-1]
     directory = "__HOME__/Pictures"
@@ -372,15 +392,15 @@ transition_on_startup = true
     directory = "__HOME__/Pictures"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "__HOME__/Pictures/pfp/mike mentzer.jpeg"
+    path = "__HOME__/Pictures/Wallpapers/mike_mentzer_upscaled.jpeg"
 
     [wallpaper.monitors.eDP-1]
-    path = "__HOME__/Pictures/pfp/mike mentzer.jpeg"
+    path = "__HOME__/Pictures/Wallpapers/arms.jpg"
 
 [widget.bar]
-dynamicIcon = true
-scale = 0.90000000000000013
+scale = 0.65000000000000002
 showElapsed = true
+show_glyph = false
 type = "ycf/mawaqit:bar"
 
 [widget.clock]
@@ -396,6 +416,7 @@ type = "shangshui0302/github-kanban:github"
 
 [widget.lyrics]
 animation = "cascade"
+enable_scroll = false
 max_chars = 30
 type = "h465855hgg/lyrics:lyrics"
 
@@ -417,6 +438,7 @@ show_tooltip = true
 [widget.network]
 font_scale = 0.79000000000000004
 scale = 0.85000000000000009
+show_label = false
 
 [widget.notes]
 type = "noctalia/notes:notes"
