@@ -368,7 +368,7 @@ wallpaper_scheme = "m3-content"
     community_ids = [ "micro" ]
 
 [wallpaper]
-directory = "__HOME__/Pictures"
+directory = "__HOME__/Pictures/Wallpapers"
 edge_smoothness = 0.20999999530613422
 fill_mode = "stretch"
 per_monitor_directories = true
@@ -376,20 +376,9 @@ transition = [ "fade" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "__HOME__/Pictures/pfp/mike mentzer.jpeg"
+    path = "__HOME__/Pictures/Wallpapers/arms.jpg"
 
     [wallpaper.last]
-    path = "__HOME__/Pictures/Wallpapers/arms.jpg"
-    [wallpaper.monitor.HDMI-A-1]
-    directory = "__HOME__/Pictures"
-
-    [wallpaper.monitor.eDP-1]
-    directory = "__HOME__/Pictures"
-
-    [wallpaper.monitors.HDMI-A-1]
-    path = "__HOME__/Pictures/Wallpapers/mike_mentzer_upscaled.jpeg"
-
-    [wallpaper.monitors.eDP-1]
     path = "__HOME__/Pictures/Wallpapers/arms.jpg"
 [widget.bar]
 scale = 0.65000000000000002
