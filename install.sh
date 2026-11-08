@@ -50,6 +50,8 @@ noctalia msg plugins enable shangshui0302/github-kanban || true
 noctalia msg plugins enable ycf/mawaqit || true
 noctalia msg plugins enable thepunkoff/pomodoro || true
 
-# 6. HOLY SHIT
-echo "Installation complete. congrats"
+#6. changing the wallpaper:
+nocatlia msg wallpaper-set ~/Pictures/arms.jpg
+#7. HOLY SHIT
+echo "Installation complete! you may need to reboot."
 echo "have fun"
