@@ -48,6 +48,7 @@ This repository contains my configuration files for the following applications:
 | Compositor | Umbriel (Wayland) |
 | Shell/Bar | Noctalia v5 |
 | Display Manager | GDM |
+| shell | Fish |
 | Terminal | Kitty |
 | Text Editor | Neovim (LazyVim) |
 | File Manager | Thunar |

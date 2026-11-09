@@ -136,6 +136,7 @@ install_configs() {
   install_dir config/umbriel "$HOME/.config/umbriel"
   install_dir config/kitty "$HOME/.config/kitty"
   install_dir config/fastfetch "$HOME/.config/fastfetch"
+  install_dir config/fish "$HOME/.config/fish"
   install_dir config/nvim "$HOME/.config/nvim"
   install_dir config/fuzzel "$HOME/.config/fuzzel"
   install_dir config/Thunar "$HOME/.config/Thunar"
