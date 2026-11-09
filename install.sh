@@ -10,7 +10,7 @@ ASSUME_YES=0
 
 PACKAGES=(
   kitty fastfetch grim slurp wl-clipboard brightnessctl
-  fuzzel fish git neovim thunar startship
+  fuzzel fish git neovim thunar starship
   noctalia-git umbriel-nightly
 )
 
@@ -20,9 +20,6 @@ PLUGINS=(
   shangshui0302/github-kanban
   ycf/mawaqit
   thepunkoff/pomodoro
-  cleboost/hotspot
-  aabidk20/yt-music
-  tranzem/media-lyrics
 )
 
 log() { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
