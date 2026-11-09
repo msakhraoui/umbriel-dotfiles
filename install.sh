@@ -10,7 +10,7 @@ ASSUME_YES=0
 
 PACKAGES=(
   kitty fastfetch grim slurp wl-clipboard brightnessctl
-  fuzzel fish git neovim thunar
+  fuzzel fish git neovim thunar startship
   noctalia-git umbriel-nightly
 )
 
@@ -142,6 +142,7 @@ install_configs() {
   install_dir config/Thunar "$HOME/.config/Thunar"
   install_file config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml \
     "$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+  install_file config/starship.toml "$HOME/.config/starship.toml"
 }
 
 install_noctalia() {
